@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scarface Web</title>
+    <meta name="description"
+        content="Página web sobre la película Scarface - Toda la información sobre el clásico de Brian De Palma" />
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="galeria.css">
+    <link rel="stylesheet" href="carrousel.css">
+    <link rel="stylesheet" href="tema.css">
+    <link rel="icon" type="image/png" href="images/cocaine_favicon.svg">
+</head>
+
+<body>
+    <div class="page-loader">
+        <h1>CARGANDO...</h1>
+    </div>
+
+    <div class="container">
+
+        <nav>
+            <a href="index.html">INICIO</a>
+            <a href="reparto.html">REPARTO</a>
+            <a href="armamento.html">ARMAMENTO</a>
+            <a href="operacion.html">OPERACIONES</a>
+            <a href="test.html">TEST</a>
+        </nav>
+
+        <main>
+            <h1>GALERÍA</h1>
+
+            <h2>EL TRÁILER QUE DINAMITÓ MIAMI</h2>
+
+            <div class="iframe-wrapper">
+                <iframe src="https://www.youtube.com/embed/7pQQHnqBa2E?si=WsXFlSwgcoxBsi6D" title="YouTube video player"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+
+            <h2>IMÁGENES ICÓNICAS</h2>
+
+            <div class="carrusel">
+                <img src="images/gallery/atras.svg" id="atras" class="carrusel-btn">
+                <div id="img">
+                    <img class="img" src="images/gallery/img1.jpg">
+                </div>
+                <img src="images/gallery/adelante.svg" id="adelante" class="carrusel-btn">
+            </div>
+
+        </main>
+    </div>
+
+    <img id="marca" src="images/MARCA_AGUA.png" alt="Logo Scarface" class="imagen-esquina">
+    <script src="tema.js"></script>
+    <script src="carrousel.js"></script>
+
+</body>
+
+</html>

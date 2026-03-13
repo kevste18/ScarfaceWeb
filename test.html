@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scarface Web</title>
+    <meta name="description"
+        content="Página web sobre la película Scarface - Toda la información sobre el clásico de Brian De Palma" />
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="test.css">
+    <link rel="stylesheet" href="tema.css">
+    <link rel="icon" type="image/png" href="images/cocaine_favicon.svg">
+</head>
+
+<body>
+    <div class="page-loader">
+        <h1>CARGANDO TEST...</h1>
+    </div>
+
+    <div class="container">
+
+        <nav>
+            <a href="index.html">INICIO</a>
+            <a href="reparto.html">REPARTO</a>
+            <a href="galeria.html">GALERÍA</a>
+            <a href="armamento.html">ARMAMENTO</a>
+            <a href="operacion.html">OPERACIONES</a>
+        </nav>
+
+        <main>
+            <h1>¿Qué personaje de Scarface eres?</h1>
+
+            <ul id="test">
+                <li class="pregunta activa">
+                    <h2>1. ¿Qué es lo más importante para ti?</h2>
+                    <button onclick="responder('tony',this)">El poder</button>
+                    <button onclick="responder('manny',this)">La amistad</button>
+                    <button onclick="responder('gina',this)">La familia</button>
+                    <button onclick="responder('frank',this)">El dinero</button>
+                </li>
+                <li class="pregunta">
+                    <h2>2. ¿Cómo reaccionas ante una traición?</h2>
+                    <button onclick="responder('tony',this)">Me vengo</button>
+                    <button onclick="responder('sosa',this)">Planeo algo</button>
+                    <button onclick="responder('frank',this)">Intento arreglarlo</button>
+                    <button onclick="responder('elvira',this)">Me alejo</button>
+                </li>
+                <li class="pregunta">
+                    <h2>3. En una fiesta tú eres...</h2>
+                    <button onclick="responder('manny',this)">El que habla con todos</button>
+                    <button onclick="responder('elvira',this)">El misterioso</button>
+                    <button onclick="responder('gina',this)">El que baila</button>
+                    <button onclick="responder('omar',this)">El que observa</button>
+                </li>
+                <li class="pregunta">
+                    <h2>4. ¿Qué tipo de líder eres?</h2>
+                    <button onclick="responder('tony',this)">Dominante</button>
+                    <button onclick="responder('frank',this)">Empresarial</button>
+                    <button onclick="responder('sosa',this)">Estratégico</button>
+                    <button onclick="responder('alberto',this)">Leal</button>
+                </li>
+                <li class="pregunta">
+                    <h2>5. ¿Cómo tomas decisiones?</h2>
+                    <button onclick="responder('tony',this)">Impulsivamente</button>
+                    <button onclick="responder('sosa',this)">Con estrategia</button>
+                    <button onclick="responder('frank',this)">Con cautela</button>
+                    <button onclick="responder('elvira',this)">Depende del momento</button>
+                </li>
+                <li class="pregunta">
+                    <h2>6. ¿Qué piensan tus amigos de ti?</h2>
+                    <button onclick="responder('manny',this)">Soy divertido</button>
+                    <button onclick="responder('tony',this)">Soy intenso</button>
+                    <button onclick="responder('gina',this)">Soy emocional</button>
+                    <button onclick="responder('omar',this)">Soy discreto</button>
+                </li>
+                <li class="pregunta">
+                    <h2>7. Tu mayor defecto es...</h2>
+                    <button onclick="responder('tony',this)">La ambición</button>
+                    <button onclick="responder('gina',this)">Los celos</button>
+                    <button onclick="responder('frank',this)">El miedo</button>
+                    <button onclick="responder('elvira',this)">La apatía</button>
+                </li>
+                <li class="pregunta">
+                    <h2>8. Si tuvieras mucho dinero lo usarías para...</h2>
+                    <button onclick="responder('frank',this)">Invertir</button>
+                    <button onclick="responder('tony',this)">Mostrar poder</button>
+                    <button onclick="responder('elvira',this)">Vivir con lujo</button>
+                    <button onclick="responder('manny',this)">Divertirme</button>
+                </li>
+                <li class="pregunta">
+                    <h2>9. ¿Qué te describe mejor?</h2>
+                    <button onclick="responder('alberto',this)">Leal</button>
+                    <button onclick="responder('omar',this)">Reservado</button>
+                    <button onclick="responder('sosa',this)">Calculador</button>
+                    <button onclick="responder('tony',this)">Ambicioso</button>
+                </li>
+                <li class="pregunta">
+                    <h2>10. ¿Qué frase te representa más?</h2>
+                    <button onclick="responder('tony',this)">El mundo es mío</button>
+                    <button onclick="responder('manny',this)">La vida es para disfrutar</button>
+                    <button onclick="responder('frank',this)">Hay que ser prudente</button>
+                    <button onclick="responder('sosa',this)">Todo es estrategia</button>
+                </li>
+            </ul>
+
+            <h2 id="resultado"></h2>
+            <img id="imagenPersonaje" src="" alt="" style="width:250px; display:none;">
+        </main>
+
+    </div>
+
+    <img id="marca" src="images/MARCA_AGUA.png" alt="Logo Scarface" class="imagen-esquina">
+    <script src="test.js"></script>
+    <script src="tema.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,51 @@
+#test {
+    list-style: none;
+    padding: 0;
+    max-width: 500px;
+    margin: auto;
+}
+
+.pregunta {
+    opacity: 0;
+    display: none;
+    transition: opacity 0.5s;
+}
+
+.pregunta.activa {
+    display: block;
+    opacity: 1;
+}
+
+.pregunta button {
+    margin: 6px;
+    padding: 10px 30px;
+    cursor: pointer;
+    background-color: red;
+    color: white;
+    border: 2px solid black;
+    font-family: 'ScarfaceFont', sans-serif;
+    font-size: 25px;
+    border-radius: 5px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+    box-shadow: 3px 3px 6px rgba(0,0,0,0.6);
+    transition: all 0.2s ease;
+}
+
+
+.pregunta button:hover {
+    background-color: darkred;
+    transform: translateY(-2px);
+}
+
+#imagenPersonaje {
+    width: 300px;
+    margin: 20px auto;
+}
+
+.pregunta {
+    text-align: center;
+}
+
+.pregunta button {
+    width: 200px;
+}

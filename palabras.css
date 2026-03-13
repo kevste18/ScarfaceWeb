@@ -1,0 +1,24 @@
+body{ /*Hacemos el fondo negro para que contraste más con el texto*/
+    display: flex; /*Usaremos flexbox para centrar las frases*/
+    justify-content: center; /*Centramos el contenido horizontalmente dentro del flex container*/
+    align-items: center; /*Centramos el contenido verticalmente*/
+    height: 100vh;  /*El body ocupa el 100% del alto de la ventana. Sin esto el centrado vertical no funcionaría*/
+    /*margin: 0; Eliminamos el margen que aplican muchos navegadores por defecto*/
+}
+
+#palabra{
+    color:white;
+    font-family: 'ScarfaceFont';
+    font-size: 3rem;
+    text-align: center;
+    border: 1px transparent;
+    text-shadow: 2px 2px 12px black;
+    cursor: pointer;
+    
+    animation: aparecer 0.4s ease;
+}
+
+@keyframes aparecer{
+    from{opacity: 0; }
+    to{opacity: 1;}
+}

@@ -1,0 +1,141 @@
+.carrusel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin: 40px auto;
+    width: 100%;
+    max-width: 900px;
+    padding: 0 10px;
+    box-sizing: border-box;
+}
+
+.carrusel.grande {
+    position: sticky;
+    top: 50%;
+    transform: translateY(-35%);
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    max-width: unset;
+    z-index: 9999;
+    margin: 0;
+    padding: 0 40px;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+.carrusel.grande .img {
+    max-width: 82vw;
+    max-height: 82vh;
+    width: auto;
+    height: auto;
+    aspect-ratio: unset;
+    cursor: pointer;
+}
+
+.carrusel.grande .carrusel-btn {
+    width: 60px;
+    min-width: 60px;
+    filter: drop-shadow(2px 2px 6px rgba(0,0,0,0.9)) brightness(2);
+}
+
+.img {
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    border-radius: 15px;
+    object-fit: cover;
+    border: 3px solid #000000;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.85);
+    transition: opacity 0.3s ease;
+    flex: 1;
+    min-width: 0;
+    cursor: pointer;
+}
+
+.carrusel-btn {
+    width: 40px;
+    min-width: 40px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.6));
+    flex-shrink: 0;
+}
+
+.carrusel-btn:hover {
+    transform: scale(1.1);
+}
+
+html, body {
+    overflow-x: hidden;
+}
+
+html.no-scroll {
+    overflow: hidden;
+}
+
+/* RESPONSIVE PARA EL CARRUSEL */
+
+@media (max-width: 768px) {
+    /* Ajustes para el carrusel normal (el pequeño) */
+    .carrusel {
+        gap: 5px;
+        padding: 0 5px;
+    }
+
+    .carrusel-btn {
+        width: 30px;
+        min-width: 30px;
+    }
+
+    /* Ajustes para el carrusel GRANDE (Modo Expandido) */
+    .carrusel.grande {
+        padding: 0 10px; /* Reducimos el espacio lateral */
+        display: flex;
+        flex-direction: column; /* Apilamos flechas si es necesario o las mantenemos flotando */
+        justify-content: center;
+    }
+
+    .carrusel.grande .img {
+        max-width: 95vw; /* Que ocupe casi todo el ancho */
+        max-height: 60vh; /* Limitamos la altura para dejar aire arriba/abajo */
+        object-fit: contain; /* Evita que la imagen se corte */
+        border-width: 2px;
+    }
+
+    /* Reposicionamos los botones en móviles para que no estorben */
+    .carrusel.grande .carrusel-btn {
+        width: 45px;
+        min-width: 45px;
+        position: absolute;
+        z-index: 10000;
+        /* Un toque de transparencia para que se vea la imagen detrás */
+        background: rgba(0, 0, 0, 0.3);
+        border-radius: 50%;
+        padding: 5px;
+    }
+
+    /* Ponemos las flechas en los extremos absolutos */
+    .carrusel.grande .carrusel-btn:first-of-type {
+        left: 10px;
+    }
+
+    .carrusel.grande .carrusel-btn:last-of-type {
+        right: 10px;
+    }
+}
+
+/* Ajuste extra para móviles muy pequeños o en horizontal */
+@media (max-height: 450px) and (orientation: landscape) {
+    .carrusel.grande .img {
+        max-height: 80vh;
+        width: auto;
+    }
+    
+    .carrusel.grande .carrusel-btn {
+        width: 35px;
+        min-width: 35px;
+    }
+}
