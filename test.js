@@ -31,7 +31,7 @@ function responder(personaje, boton) {
 
         if (preguntaActual < preguntas.length) { // Si aún quedan preguntas...
             preguntas[preguntaActual].classList.add("activa"); //...muestra la siguiente añadiéndole "activa"
-            preguntas[preguntaActual].offsetHeight;
+            preguntas[preguntaActual].offsetHeight; // Fuerza reflow para que la transición CSS se reinicie correctamente
             transicionando = false; // Desbloquea los clicks de nuevo
         } else { //Si ya no quedan preguntas...
             mostrarResultado(); // ...calcula y muestra el resultado final

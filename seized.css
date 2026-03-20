@@ -2,18 +2,18 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    scrollbar-width: none;
+    scrollbar-width: none; /* Oculta scrollbar en Firefox */
 }
 
-::-webkit-scrollbar { display: none; }
+::-webkit-scrollbar { display: none; } /* Oculta scrollbar en Chrome/Safari */
 
 body {
     display: flex;
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    overflow: hidden;   /* Solo oculta el scroll horizontal */   /* Permite scroll vertical */
-    padding: 10px 0;      /* Espacio para que no se corte arriba y abajo */
+    overflow: hidden; 
+    padding: 10px 0;/* Espacio para que no se corte arriba y abajo */
     background-image: url(images/operaciones/fondo.jpg);
     background-size: cover;
     background-position: center;
@@ -24,16 +24,17 @@ body {
 
 @keyframes alarma {
   0%, 100% { opacity: 0; }
-  50%       { opacity: 0.6; }
+  50% { opacity: 0.6; }
 }
 
+/* EFECTO ALARMA */
 body::after {
-  content: '';
+  content: ''; /* Necesario para que el pseudo-elemento exista */
   position: fixed;
-  inset: 0;
+  inset: 0; /* Equivale a top/right/bottom/left: 0, cubre toda la pantalla */
   background: red;
   animation: alarma 1.7s ease-in-out infinite;
-  pointer-events: none;
+  pointer-events: none; /* El overlay no bloquea clicks al contenido debajo */
   z-index: 0;
 }
 
@@ -49,7 +50,7 @@ img {
     text-align: center;
     margin: auto 0;
     position: relative;
-    z-index: 1;
+    z-index: 1; /* Necesario para que el contenido quede por encima del body::after */
 }
 
 h1 {
@@ -107,8 +108,6 @@ p:last-child {
     color: red;
     letter-spacing: 6px;
     margin: 0;
-    background: none;
-    padding: 0;
 }
 
 @keyframes slideDown {
@@ -119,13 +118,13 @@ p:last-child {
     background: rgba(0, 0, 0, 0.65);
     padding: 10px 16px;
     border-radius: 4px;
-    backdrop-filter: blur(4px);
+    backdrop-filter: blur(4px); /* Desenfoca el fondo detrás del párrafo */
 }
 
-/* ===== TABLET (max 768px) ===== */
+/*TABLET (max 768px)*/
 @media only screen and (max-width: 768px) {
-    h1 { font-size: 38px; }
-    h2 { font-size: 32px; }
+    h1 { font-size: 37px; }
+    h2 { font-size: 30px; }
     p { font-size: 25px; }
 
     .contenido { padding: 20px; }
@@ -134,7 +133,7 @@ p:last-child {
     .page-loader h1 { font-size: 50px; }
 }
 
-/* ===== MÓVIL (max 480px) ===== */
+/*MÓVIL (max 480px)*/
 @media only screen and (max-width: 480px) {
     body {
         overflow-y: auto;
@@ -151,16 +150,16 @@ p:last-child {
     .page-loader h1 { font-size: 36px; letter-spacing: 3px; }
 }
 
-/* ===== MUY PEQUEÑO (max 360px) ===== */
+/*MUY PEQUEÑO (max 360px)*/
 @media only screen and (max-width: 360px) {
-    h1 { font-size: 50px; }
-    h2 { font-size: 30px; }
-    p { font-size: 20px; }
+    h1 { font-size: 25px; }
+    h2 { font-size: 20px; }
+    p { font-size: 16px; }
     .contenido { padding: 15px 10px; }
     img { width: 110px; }
 }
 
-/* ===== LANDSCAPE MÓVIL ===== */
+/*LANDSCAPE MOVIL*/
 @media only screen and (orientation: landscape) and (max-height: 500px) {
     body {
         overflow-y: auto;

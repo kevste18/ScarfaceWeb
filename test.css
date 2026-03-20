@@ -5,10 +5,13 @@
     margin: auto;
 }
 
+/* display:none no se puede animar — la transición de opacity solo funciona
+   porque el JS controla el orden: pone opacity:0, espera 500ms, luego cambia display */
 .pregunta {
     opacity: 0;
     display: none;
     transition: opacity 0.5s;
+    text-align: center;
 }
 
 .pregunta.activa {
@@ -19,6 +22,7 @@
 .pregunta button {
     margin: 6px;
     padding: 10px 30px;
+    width: 200px;
     cursor: pointer;
     background-color: red;
     color: white;
@@ -39,13 +43,5 @@
 
 #imagenPersonaje {
     width: 300px;
-    margin: 20px auto;
-}
-
-.pregunta {
-    text-align: center;
-}
-
-.pregunta button {
-    width: 200px;
+    margin: 20px auto; /* auto en los lados centra el elemento horizontalmente */
 }

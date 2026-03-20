@@ -16,16 +16,13 @@ const fotos = [
     "images/gallery/img16.jpg"
 ];
 let actual = 0; //Contador del array.
-const esLandscape = () => window.innerHeight < 500 && window.innerWidth > window.innerHeight;
 
 document.querySelector('.img').addEventListener('click', () => {
-    if (esLandscape()) return;
     document.querySelector('.carrusel').classList.toggle('grande');
     document.documentElement.classList.toggle('no-scroll');
 })
 
 function mover(direccion) { // Función que avanza o retrocede
-    if (esLandscape()) return;
     const img = document.querySelector('.img'); // Obtiene el elemento <img> con clase "img"
     img.style.opacity = 0; // Inicia el fade-out: hace la imagen invisible
     setTimeout(() => { // Espera 300ms (duración del fade-out) y luego...

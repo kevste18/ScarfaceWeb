@@ -11,18 +11,24 @@
 }
 
 .carrusel.grande {
-    position: sticky;
+    position: fixed;
     top: 50%;
-    transform: translateY(-35%);
-    left: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);/* Centra perfectamente: top/left al 50% mueven la esquina, translate la corrige al centro real */
     width: 100vw;
     height: 100vh;
-    max-width: unset;
+    max-width: unset; /* Anula el max-width heredado de .carrusel */
     z-index: 9999;
     margin: 0;
     padding: 0 40px;
     box-sizing: border-box;
     cursor: pointer;
+    background: rgba(162, 158, 158, 0.348); /* Fondo semitransparente para el modo expandido */
+
+    /* Para centrar el contenido interno (imagen + botones) */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .carrusel.grande .img {
@@ -30,28 +36,28 @@
     max-height: 82vh;
     width: auto;
     height: auto;
-    aspect-ratio: unset;
+    aspect-ratio: unset; /* Anula el 16/9 definido en .img base */  
     cursor: pointer;
 }
 
 .carrusel.grande .carrusel-btn {
     width: 60px;
     min-width: 60px;
-    filter: drop-shadow(2px 2px 6px rgba(0,0,0,0.9)) brightness(2);
+    filter: drop-shadow(2px 2px 6px rgba(0, 0, 0, 0.9)) brightness(2);
 }
 
 .img {
     width: 100%;
     max-width: 800px;
     height: auto;
-    aspect-ratio: 16 / 9;
+    aspect-ratio: 16 / 9; /* Mantiene proporciones aunque la imagen no sea exactamente 16:9 */
     border-radius: 15px;
-    object-fit: cover;
+    object-fit: cover; /* Rellena el espacio sin deformar, recortando si hace falta */
     border: 3px solid #000000;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.85);
     transition: opacity 0.3s ease;
-    flex: 1;
-    min-width: 0;
+    flex: 1; /* Ocupa el espacio disponible entre los dos botones */    
+    min-width: 0; /* Necesario en flex para que el elemento pueda encogerse por debajo de su tamaño natural */
     cursor: pointer;
 }
 
@@ -60,7 +66,7 @@
     min-width: 40px;
     cursor: pointer;
     transition: all 0.2s ease;
-    filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.6));
+    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.6));
     flex-shrink: 0;
 }
 
@@ -68,17 +74,19 @@
     transform: scale(1.1);
 }
 
-html, body {
+html,
+body {
     overflow-x: hidden;
 }
 
 html.no-scroll {
-    overflow: hidden;
+    overflow: hidden;  /* Se activa por JS al abrir el modo expandido, evita scroll del fondo */
 }
 
 /* RESPONSIVE PARA EL CARRUSEL */
 
 @media (max-width: 768px) {
+
     /* Ajustes para el carrusel normal (el pequeño) */
     .carrusel {
         gap: 5px;
@@ -92,20 +100,24 @@ html.no-scroll {
 
     /* Ajustes para el carrusel GRANDE (Modo Expandido) */
     .carrusel.grande {
-        padding: 0 10px; /* Reducimos el espacio lateral */
-        display: flex;
-        flex-direction: column; /* Apilamos flechas si es necesario o las mantenemos flotando */
+        padding: 0 10px;
+        /* Reducimos el espacio lateral */
+        flex-direction: column;
+        /* Apilamos flechas si es necesario o las mantenemos flotando */
         justify-content: center;
     }
 
     .carrusel.grande .img {
-        max-width: 95vw; /* Que ocupe casi todo el ancho */
-        max-height: 60vh; /* Limitamos la altura para dejar aire arriba/abajo */
-        object-fit: contain; /* Evita que la imagen se corte */
+        max-width: 95vw;
+        /* Que ocupe casi todo el ancho */
+        max-height: 60vh;
+        /* Limitamos la altura para dejar aire arriba/abajo */
+        object-fit: contain;
+        /* Evita que la imagen se corte */
         border-width: 2px;
     }
 
-    /* Reposicionamos los botones en móviles para que no estorben */
+    /* En móvil los botones pasan a posición absoluta para no interferir con la imagen */
     .carrusel.grande .carrusel-btn {
         width: 45px;
         min-width: 45px;
@@ -133,7 +145,7 @@ html.no-scroll {
         max-height: 80vh;
         width: auto;
     }
-    
+
     .carrusel.grande .carrusel-btn {
         width: 35px;
         min-width: 35px;

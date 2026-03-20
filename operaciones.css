@@ -1,58 +1,68 @@
-#textoOperaciones {
-    background: rgba(0, 0, 0, 0.5);
-    display: flex; 
-    flex-direction: column;
-    align-items: center;
-    text-align: center;      
-    margin: 0 auto;
-    font-size: 36px;
-    border-radius: 10px;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-    padding: 10px 15px;
-    width: 100%;
-    max-width: 60%;
-    box-sizing: border-box;
-    margin: 0 auto 30px;
-}
-
-div {
-    width: 100%;
-    max-width: 100%;
-    overflow-x: hidden;
-    box-sizing: border-box;
-}
-
-#btns {
-    margin: 0 10px;
-    text-decoration: none;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
-    background-color: red;
-    padding: 10px 50px;
-    font-size: 32px;
-    border-radius: 5px;
-    border: 2px solid black;
-    box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.6);
-    transition: all 0.2s ease;
-    display: inline-block; /* Necesario para que el padding y transform funcionen bien en enlaces */
-}
-
-li {
-    background: none;
-
-}
-
+    * {
+    box-sizing: border-box; /* Padding y border incluidos en el width, evita desbordamientos */
+    }
     
+    #textoOperaciones {
+        background: rgba(0, 0, 0, 0.5);
+        text-align: center;      
+        font-size: 36px;
+        border-radius: 10px;
+        overflow-wrap: break-word; /* Evita que palabras largas se salgan del contenedor */
+        padding: 10px 15px;
+        width: 100%;
+        max-width: 80%;
+        margin: 0 auto 30px;
+    }
 
+    div {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden;
+    }
 
-@media only screen and (max-width: 768px) {
-    #textoOperaciones { font-size: 28px; }
-}
+    .btns {
+        margin: 0 10px; 
+        text-decoration: none;
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+        background-color: red;
+        padding: 10px 50px;
+        font-size: 32px;
+        border-radius: 5px;
+        border: 2px solid black;
+        box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.6);
+        transition: all 0.2s ease; /* Suaviza el efecto hover */
+        display: inline-block; /* Necesario para que el padding y transform funcionen bien en enlaces */
+    }
 
-@media only screen and (max-width: 480px) {
-    #textoOperaciones { font-size: 19px; }
-}
+    .btns:hover {   
+        background-color: darkred;
+        transform: scale(1.05);
+    }
 
-@media only screen and (max-width: 360px) {
-    #textoOperaciones { font-size: 13px; }
-}
+    li {
+        background: none;
+    }
+
+    @media only screen and (max-width: 768px) {
+        #textoOperaciones { font-size: 28px; }
+        .btns {
+            padding: 5px 18px;
+            font-size: 22px;
+        }
+    }
+
+    @media only screen and (max-width: 480px) {
+        #textoOperaciones { font-size: 19px; }
+        .btns {
+            padding: 8px 10px;
+            font-size: 16px;
+        }
+    }
+
+    @media only screen and (max-width: 360px) {
+        #textoOperaciones { font-size: 13px; }
+        .btns {
+            padding: 4px 8px;
+            font-size: 10px;
+        }
+    }

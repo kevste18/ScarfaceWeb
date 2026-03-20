@@ -1,353 +1,443 @@
-    html {
-    overflow-x: hidden; /*Evita scroll horizontal en el elemento raíz */
-    max-width: 100%; /* No supera el ancho de la pantalla */
-}
+        html {
+            overflow-x: hidden;
+            /*Evita scroll horizontal en el elemento raíz */
+            max-width: 100%;
+            /* No supera el ancho de la pantalla */
+        }
 
-body {
-    overflow-x: hidden;
-    max-width: 100%;
-    background-image: url(images/default.jpg);
-    background-size: cover; /* La imagen cubre todo el fondo sin deformarse */
-    background-repeat: no-repeat; /* No repite la imagen */
-    background-position: center;
-    background-attachment: fixed;
-    transition: opacity 0.5s ease; /* Transición suave de opacidad (para el cambio de tema) */
-}
+        body {
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            max-width: 100%;
+            background-image: url(images/default.jpg);
+            background-size: cover; /* La imagen cubre todo el fondo sin deformarse */
+            background-repeat: no-repeat; /* No repite la imagen */
+            background-position: center;
+            background-attachment: fixed;  /* El fondo no se mueve al hacer scroll */
+            transition: opacity 0.5s ease; /* Transición suave de opacidad (para el cambio de tema) */
+        }
 
-/*Esto es para la fuente personalizada*/
-@font-face {
-    font-family: 'ScarfaceFont';
-    src: url(fonts/OPTILency.otf) format('opentype');
-    font-weight: normal;
-    font-style: normal;
-}
+        /*Esto es para la fuente personalizada*/
+        @font-face {
+            font-family: 'ScarfaceFont';
+            src: url(fonts/OPTILency.otf) format('opentype');
+            font-weight: normal;
+            font-style: normal;
+        }
 
-h1 {
-    color: red;
-    text-align: center;
-    font-family: 'ScarfaceFont', sans-serif;
-    font-size: 150px;
-    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8);
-    margin: 30px 0;
-    animation: fadeInDown 1s ease; /* Llama a la animación fadeInDown al cargar */
-}
+        h1 {
+            color: red;
+            text-align: center;
+            font-family: 'ScarfaceFont', sans-serif;
+            font-size: 150px;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8);
+            margin: 30px 0;
+            animation: fadeInDown 1s ease; /* Llama a la animación fadeInDown al cargar */
+        }
 
-@keyframes fadeInDown { /* Define la animación: aparece cayendo desde arriba */
-    from { opacity: 0; transform: translateY(-30px); }
-    to   { opacity: 1; transform: translateY(0); }
-}
+        @keyframes fadeInDown {
 
-h2 {
-    color: whitesmoke;
-    text-align: center;
-    font-family: 'ScarfaceFont', sans-serif;
-    font-size: 60px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
-    margin: 20px 0;
-}
+            /* Define la animación: aparece cayendo desde arriba */
+            from {
+                opacity: 0;
+                transform: translateY(-30px); /* Empieza invisible y 30px arriba */
+            }
 
-h3 {
-    color: whitesmoke;
-    text-align: center;
-    font-family: 'ScarfaceFont', sans-serif;
-    font-size: 40px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
-    margin: 20px 0;
-}
+            to {
+                opacity: 1;
+                transform: translateY(0); /* Termina en su posición normal */
+            }
+        }
 
-/* Esto es la animación de carga entre páginas */
-.page-loader {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999; /*Establece el page loader por encima de todo lo de la web*/
-    animation: fadeOut 0.5s ease 1s forwards; /*Llamamos a la animación fadeOut*/
-}
+        h2 {
+            color: whitesmoke;
+            text-align: center;
+            font-family: 'ScarfaceFont', sans-serif;
+            font-size: 80px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+            margin: 20px 0;
+        }
 
-@keyframes fadeOut {
-    to {
-        opacity: 0;
-        visibility: hidden;
-    }
-}
+        h3 {
+            color: whitesmoke;
+            text-align: center;
+            font-family: 'ScarfaceFont', sans-serif;
+            font-size: 40px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+            margin: 20px 0;
+        }
 
-/* Imagen esquina */
-.imagen-esquina {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    width: 100px;
-    z-index: 999;
-    opacity: 0.8;
-    transition: all 0.3s ease; /* Por encima del contenido normal */
-    filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.5));
-}
+        .page-loader {
+            position: fixed;
+            top: 0; /*Empieza arriba del todo*/
+            left: 0; /*Junto a top:0, empieza en la esquina superior izquierda*/
+            width: 100%; /*Ocupa todo el ancho visible*/
+            height: 100%; /*Ocupa todo el alto visible*/
+            background: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999; /*Establece el page loader por encima de todo lo de la web*/
+            animation: fadeOut 0.5s ease 1s forwards; /*Llamamos a la animación fadeOut*/
+        }
 
-.imagen-esquina:hover {
-    opacity: 1;
-    transform: scale(1.1) rotate(5deg); /* Al hover: crece un 10% y rota 5 grados */
-}
+        @keyframes fadeOut {
+            to {
+                opacity: 0;
+                visibility: hidden;  /* visibility:hidden libera el espacio, opacity:0 solo lo hace invisible */
+            }
+        }
 
-/* Nav */
-nav {
-    font-family: 'ScarfaceFont', sans-serif;
-    font-size: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap; /* Si no caben los botones en una fila, saltan a la siguiente */
-    gap: 6rem;
-    grid-area: nav; /* Le dice al grid que este elemento ocupa el área llamada "nav" */
-    width: 100%;
-    box-sizing: border-box; /* El padding no suma al ancho total */ 
-    padding: 10px;
-}
+        /* Imagen esquina */
+        .imagen-esquina {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 100px;
+            z-index: 999;
+            opacity: 0.8;
+            transition: all 0.3s ease; /* Por encima del contenido normal */
+            filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.5));
+            cursor: pointer;
+        }
 
-/* Botones de navegación */
-a {
-    color: whitesmoke;
-    text-decoration: none;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
-    background-color: red;
-    padding: 4px 50px;
-    border-radius: 5px;
-    border: 2px solid black;
-    box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.6);
-    transition: all 0.2s ease;
-    display: inline-block; /* Necesario para que el padding y transform funcionen bien en enlaces */
-}
-
-ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-li {
-    color: whitesmoke;
-    font-family: 'ScarfaceFont', sans-serif;
-    font-size: 20px;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
-    margin: 5px 0;
-    background: rgba(0, 0, 0, 0.5);
-    padding: 6px 10px;
-    border-radius: 4px;
-}
-
-a:hover {
-    background-color: darkred;
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.9);
-    transform: translateY(-2px); 
-}
-
-*, *::before, *::after {
-    box-sizing: border-box; /* Aplica el modelo de caja correcto a TODOS los elementos y sus pseudoelementos */
-}
-
-.container {
-    display: grid;
-    min-height: 100vh; /* Ocupa al menos toda la altura de la pantalla */
-    width: 100%;
-    max-width: 100%;
-    overflow-x: hidden;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 0.1fr auto 0.1fr;
-    grid-template-areas: 
-        "nav nav nav"
-        "main main main";
-    gap: 0.2rem;
-}
-
-main {
-    grid-area: main;
-    padding: 0 10px;
-    overflow-x: hidden;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-}
-
-/* Responsive */
-/* ===== TABLET (max 768px) ===== */
-@media only screen and (max-width: 768px) {
-    h1 { font-size: 75px; }
-    h2 { font-size: 35px; }
-    h3 { font-size: 20px; }
-
-    nav {
-        flex-wrap: wrap;
-        gap: 0.5rem;
-        padding: 12px 8px;
-        font-size: 22px;
-    }
-
-    a {
-        padding: 5px 18px;
-        font-size: 22px;
-    }
-
-    .imagen-esquina {
-        width: 70px;
-        bottom: 10px;
-        right: 10px;
-    }
-}
-
-/* ===== MÓVIL (max 480px) ===== */
-@media only screen and (max-width: 480px) {
-    .container {
-        grid-template-columns: 1fr;
-        grid-template-areas:
-            "nav"
-            "main"
-            "footer";
-        gap: 0;
-        padding: 0;
-    }
-
-    h1 { font-size: 70px; }
-    h2 { font-size: 45px; }
-    h3 { 
-        font-size: 30px; 
-        padding: 0 15px;
-        line-height: 1.4;  /* Espacio entre líneas (1.4 veces el tamaño de fuente) */
-    }
-
-    /* Nav: 2 columnas para que quepan los 5 botones */
-    nav {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 0.4rem;
-        padding: 10px;
-        font-size: 18px;
-    }
-
-    /* El botón de INICIO ocupa el ancho completo */
-    nav a:first-child {
-        grid-column: 1 / -1;
-    }
+        .imagen-esquina:hover {
+            opacity: 1;
+            transform: scale(1.1) rotate(5deg);
+            /* Al hover: crece un 10% y rota 5 grados */
+        }
 
 
-    a {
-        padding: 8px 10px;
-        font-size: 16px;
-        text-align: center;
-    }
+        /* Botones de navegación */
+        a {
+            color: whitesmoke;
+            text-decoration: none;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+            background-color: red;
+            padding: 4px 50px;
+            border-radius: 5px;
+            border: 2px solid black;
+            box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.6);
+            transition: all 0.2s ease; /* Suaviza el efecto hover */
+            display: inline-block; /* Necesario para que el padding y transform funcionen bien en enlaces */
+        }
 
-    /* Carrusel */
-    .carrusel {
-        width: 100%;
-    }
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
 
-    .img {
-        width: 85%;
-        height: 200px;
-        object-fit: cover;
-    }
+        li {
+            color: whitesmoke;
+            font-family: 'ScarfaceFont', sans-serif;
+            font-size: 20px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+            margin: 5px 0;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 6px 10px;
+            border-radius: 4px;
+        }
 
-    /* Reproductor */
-    .reproductorMusica {
-        width: 92%;
-        margin: 15px auto;
-    }
+        a:hover {
+            background-color: darkred;
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.9);
+            transform: translateY(-2px);
+        }
 
-    /* Imagen esquina */
-    .imagen-esquina {
-        width: 55px;
-        bottom: 8px;
-        right: 8px;
-    }
-}
+        *, *::before, *::after {
+            box-sizing: border-box; /* Padding y border incluidos en el width, evita desbordamientos */
+        }
 
-/* ===== MUY PEQUEÑO (max 360px) ===== */
-@media only screen and (max-width: 360px) {
-    h1 { font-size: 40px; }
-    h2 { font-size: 22px; }
-    h3 { font-size: 14px; }
+        .container {
+            display: grid;
+            min-height: 100vh;
+            /* Ocupa al menos toda la altura de la pantalla */
+            width: 100%;
+            max-width: 100%;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-rows: auto 1fr auto;
+            grid-template-areas:
+                "nav nav nav"
+                "main main main"
+                "footer footer footer";
+            gap: 0.2rem;
+        }
 
-    nav { font-size: 14px; gap: 0.3rem; }
-}
+        nav {
+            font-family: 'ScarfaceFont', sans-serif;
+            font-size: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap; /* Si no caben los botones en una fila, saltan a la siguiente */
+            gap: 6rem;
+            grid-area: nav; /* Le dice al grid que este elemento ocupa el área llamada "nav" */
+            width: 100%; /* El padding no suma al ancho total */
+            padding: 10px;
+        }
 
-/* Landscape: se comporta casi como escritorio */
-@media only screen and (orientation: landscape) and (max-height: 500px) {
-    .container {
-        grid-template-columns: 1fr 1fr 1fr;
-        grid-template-areas: "nav nav nav" "main main main" "footer footer footer";
-    }
+        main {
+            grid-area: main;
+            padding: 0 10px;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
 
-    h1 { font-size: 50px; }
-    h2 { font-size: 28px; }
-    h3 { font-size: 16px; line-height: 1.4; }
+        footer {
+            grid-area: footer;
+            padding-bottom: 1px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
 
-    nav {
-        display: flex;
-        flex-wrap: nowrap; /* Los botones no saltan de línea aunque no quepan */
-        justify-content: center;
-        gap: 1rem;
-        font-size: 18px;
-        padding: 8px;
-    }
+        footer p {
+            background: rgba(140, 0, 0, 0.5);
+            color: white;
+        }
 
-    nav { gap: 2rem; font-size: 22px; }
+        /* Responsive */
+        /* ===== TABLET (max 768px) ===== */
+        @media only screen and (max-width: 768px) {
+            h1 {
+                font-size: 75px;
+            }
 
-    a { padding: 6px 22px; font-size: 22px; }
+            h2 {
+                font-size: 35px;
+            }
 
-    .reproductorMusica { width: 50%; margin: 10px auto; }
-
-    .imagen-esquina { width: 50px; }
-
-    .cards-container { 
-        display: flex; 
-        flex-wrap: wrap; 
-        justify-content: center; 
-    }
-}
-
-main { grid-area: main; padding: 0 10px; overflow-x: hidden; }
-footer { grid-area: footer; }
-
-
-/* Iframe wrapper responsive */
-.iframe-wrapper {
-    position: relative;
-    width: 100%;
-    max-width: 900px;
-    margin: 0 auto;
-    aspect-ratio: 16 / 9;
-}
-
-.iframe-wrapper iframe {
-    position: absolute; /* Se posiciona respecto al wrapper */
-    top: 0; left: 0;
-    width: 100%;
-    height: 100%;
-}
-
-iframe {
-    display: block;
-    margin: 0 auto;
-    max-width: 100%;
-}
-
-/*PARA ELIMINAR LA BARRA LATERAL DEL NAVEGADOR*/
-/* Ocultar scrollbar en Chrome, Safari, Edge */
-::-webkit-scrollbar {
-    display: none;
-}
-
-/* Ocultar scrollbar en Firefox */
-* {
-    scrollbar-width: none;
-}
+            h3 {
+                font-size: 20px;
+            }
 
 
+            nav {
+                flex-wrap: wrap;
+                gap: 0.5rem;
+                padding: 12px 8px;
+                font-size: 22px;
+            }
+
+            a {
+                padding: 5px 18px;
+                font-size: 22px;
+            }
+
+            .imagen-esquina {
+                width: 70px;
+                bottom: 10px;
+                right: 10px;
+            }
+        }
+
+        /* ===== MÓVIL (max 480px) ===== */
+        @media only screen and (max-width: 480px) {
+            .container { /* En móvil el nav pasa de flex a grid para distribuir los botones en 2 columnas */
+                grid-template-columns: 1fr;
+                grid-template-areas:
+                    "nav"
+                    "main"
+                    "footer";
+                gap: 0;
+                padding: 0;
+                padding-top: 10px; /* Espacio superior para que el contenido no quede pegado al nav */
+            }
 
 
+            .redes {
+                padding: 5px 15px;
+                font-size: 10px;
+            }
+
+            h1 {
+                font-size: 120px;
+            }
+
+            h2 {
+                font-size: 45px;
+            }
+
+            h3 {
+                font-size: 30px;
+                padding: 0 15px;
+                line-height: 1.4;
+                /* Espacio entre líneas (1.4 veces el tamaño de fuente) */
+            }
+
+            /* Nav: 2 columnas para que quepan los 5 botones */
+            nav {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 0.4rem;
+                padding: 10px;
+                font-size: 18px;
+            }
+
+            /* El botón de INICIO ocupa el ancho completo */
+            nav a:first-child {
+                grid-column: 1 / -1;
+            }
+
+
+            a {
+                padding: 8px 10px;
+                font-size: 25px;
+                text-align: center;
+            }
+
+            .img {
+                width: 85%;
+                height: 200px;
+                object-fit: cover;
+            }
+
+            /* Imagen esquina */
+            .imagen-esquina {
+                width: 55px;
+                bottom: 8px;
+                right: 8px;
+            }
+        }
+
+        /* ===== MUY PEQUEÑO (max 360px) ===== */
+        @media only screen and (max-width: 360px) {
+            h1 {
+                font-size: 40px;
+            }
+
+            h2 {
+                font-size: 22px;
+            }
+
+            h3 {
+                font-size: 14px;
+            }
+
+            nav {
+                font-size: 14px;
+                gap: 0.3rem;
+            }
+        }
+
+        /* Landscape: se comporta casi como escritorio */
+        @media only screen and (orientation: landscape) and (max-height: 500px) {
+            .container {
+                grid-template-columns: 1fr 1fr 1fr;
+                grid-template-rows: auto 1fr auto;
+                grid-template-areas: "nav nav nav" "main main main" "footer footer footer";
+                padding-top: 12px;
+            }
+
+            h1 {
+                font-size: 60px;
+            }
+
+            h2 {
+                font-size: 36px;
+            }
+
+            h3 {
+                font-size: 16px;
+                line-height: 1.4;
+            }
+
+            nav {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 0.4rem;
+                font-size: 16px;
+                padding: 6px;
+            }
+
+            a {
+                padding: 4px 14px;
+                font-size: 16px;
+            }
+
+            .redes {
+                padding: 4px 14px;
+                font-size: 16px;
+            }
+
+            .imagen-esquina {
+                width: 45px;
+            }
+
+            .cards-container {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+
+
+        /* Iframe wrapper responsive */
+        .iframe-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+            aspect-ratio: 16 / 9; /* Mantiene proporciones del vídeo en cualquier tamaño */
+        }
+
+        .iframe-wrapper iframe {
+            position: absolute; /* Se posiciona respecto al wrapper */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%; /* Rellena exactamente el wrapper manteniendo el aspect-ratio */
+        }
+
+        iframe {
+            display: block;
+            margin: 0 auto;
+            max-width: 100%;
+        }
+
+
+
+        /*Esto para el tamaño de imagen en el HTML de Contacto*/
+        .persona-card img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 10%;
+        }
+
+        .contacto-wrapper {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            background-color: rgba(43, 41, 37, 0.5);
+            border-radius: 10px;
+            padding: 10px;
+        }
+
+        #yt {
+            margin-bottom: 40px;
+            border: none;
+            width: 300px;
+            height: 170px;
+        }
+
+
+        /*PARA ELIMINAR LA BARRA LATERAL DEL NAVEGADOR*/
+        /* Ocultar scrollbar en Chrome, Safari, Edge */
+        ::-webkit-scrollbar {
+            display: none;
+        }
+
+        /* Ocultar scrollbar en Firefox */
+        * {
+            scrollbar-width: none;
+        }

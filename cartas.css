@@ -1,33 +1,49 @@
-/* Contenedor de cartas mejorado */
+/* Contenedor de cartas*/
 .cards-container {
+    /*Usamos Flexbox para las cartas*/
     display: flex;
+    /*Centramos las cartas horizontalmente*/
     justify-content: center;
+    /*Dejamos un espacio entre carta y carta*/
     gap: 30px;
+    /*Esto es para que, si las cartas no caben en la misma línea
+    salte a la siguiente*/
     flex-wrap: wrap;
     margin: 40px auto;
     padding: 20px;
+    /*El contenedor de cartas no superará 1400px de ancho*/
     max-width: 1400px;
 }
 
 /* Carta individual */
 .card {
+    /*Le damos un ancho*/
     width: 280px;
+    /*Le damos un alto*/
     height: 380px;
+    /*Esto es para crear una perspectiva 3D*/
     perspective: 1000px;
+    /*El cursor pasa a "manita" al pasar por encima*/
     cursor: pointer;
+    /*Esto es una transición para el "saltito" que hacen las cartas*/
     transition: transform 0.3s ease;
-    animation: fadeInUp 0.6s ease backwards;
+    /*Esta animación hace que, al cargar la página, las cartas se desplacen hacia arriba*/
+    animation: fadeInUp 2s ease backwards;
 }
 
 .card:hover {
+    /*Al pasar el ratón, la carta sube 10 px (hace un pequeño salto)*/
     transform: translateY(-10px);
 }
 
 /* Parte interna que gira */
 .card-inner {
     position: relative;
+    /*Ocuparmos el ancho del .card*/
     width: 100%;
+    /*Lo mismo pero para la altura*/
     height: 100%;
+    /*Esto es para indicar el tiempo de rotación*/
     transition: transform 0.8s;
     transform-style: preserve-3d;
 }
@@ -38,133 +54,143 @@
 }
 
 /* Frente y reverso */
-.card-front, 
+.card-front,
 .card-back {
+    /*Ambas capas ocupan el mismo espacio y se superponen*/
     position: absolute;
     width: 100%;
     height: 100%;
     backface-visibility: hidden;
-    border: 3px solid #ff0000;
-    border-radius: 15px;
+    /*Esto es el borde más externo de la carta*/
+    border: 3px solid red;
+    /*Esto es para "redondear" los bordes de la carta*/
+    border-radius: 30px;
+    /*Cualquier cosa que sobresalga de la carta, se corta*/
     overflow: hidden;
     display: flex;
+    /*Los elementos internos se apilan verticalmente*/
     flex-direction: column;
+    /*Centramos horizontalmente el contenido interno*/
     align-items: center;
+    /*Lo mismo pero verticalmente*/
     justify-content: center;
     box-sizing: border-box;
+    /*Añadimos una sombra alrededor de la carta*/
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
 }
 
 /* Frente */
 .card-front {
+    /*Añadimos un degradado de color de rojo oscuro a rojo claro*/
     background: linear-gradient(135deg, darkred 0%, red 100%);
     padding: 15px;
 }
 
 /* Reverso */
 .card-back {
+    /*Degradado de color invertido respecto al front (rojo claro a rojo*/
     background: linear-gradient(135deg, red 0%, darkred 100%);
-    color: white;
+    /*Esta cara ya empieza girada 180º, cuando el inner gire será visible*/
     transform: rotateY(180deg);
     padding: 25px;
+    /*Centramos el texto*/
     text-align: center;
 }
 
 /* Imagen dentro del frente */
 .card-front img {
+    /*La imagen ocupa el 90% del ancho de la carta*/
     width: 90%;
+    /*Y solo un 70% de su altura*/
     height: 70%;
-    object-fit: cover;
+    /*Le damos esquinas redondeadas*/
     border-radius: 10px;
+    /*Aplicamos un borde pequeñito, para separar imagen de la carta como tal*/
     border: 2px solid white;
+    /*Añadimos una sombra alrededor de la imagen*/
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-    margin-bottom: 10px;
 }
 
 /* Título en la carta */
-.card-front h3 {
-    margin: 10px 0 0 0;
-    padding: 0;
-    color: white;
-    font-size: 20px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
-    background: none;
-    font-family: 'ScarfaceFont', sans-serif;
-}
-
+.card-front h3,
 .card-back h3 {
-    margin: 0 0 15px 0;
-    padding: 0;
+    /*Margin va así: arriba, derecha, abajo, izquierda
+    luego he añadido 10 px de separación entre el nombre y el resto de elementos*/
+    margin: 10px 0 0 0;
     color: white;
-    font-size: 24px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
-    background: none;
+    /*Indicamos el tamaño de la letra*/
+    font-size: 40px;
+    /*Añadimos sombra detras de las letras para hacerlas más legibles*/
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 1);
+    /*Usamos la fuente personalizada*/
     font-family: 'ScarfaceFont', sans-serif;
 }
 
+/*Para el párrafo en la parte de atrás*/
 .card-back p {
     color: white;
     font-size: 16px;
+    /*Separamos un poco cada línea para darle legibilidad*/
     line-height: 1.5;
+    /*Sombra alrededor del texto, aumenta la legibilidad*/
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
 }
 
-/* Animación de entrada */
-.card:nth-child(1) { animation-delay: 0.1s; }
-.card:nth-child(2) { animation-delay: 0.2s; }
-.card:nth-child(3) { animation-delay: 0.3s; }
-.card:nth-child(4) { animation-delay: 0.4s; }
-.card:nth-child(5) { animation-delay: 0.5s; }
-.card:nth-child(6) { animation-delay: 0.6s; }
-.card:nth-child(7) { animation-delay: 0.7s; }
-.card:nth-child(8) { animation-delay: 0.8s; }
-
+/*Aquí la animación que desplaza las imagenes al acceder a la página*/
 @keyframes fadeInUp {
     from {
         opacity: 0;
         transform: translateY(30px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
     }
 }
 
+
 /* Responsive */
+/*Pantallas de hasta 900px de ancho (tablets)*/
 @media (max-width: 900px) {
     .cards-container {
+        /*Reducimos el hueco entre cartas*/
         gap: 20px;
     }
-    
+
+    /*Hacemos las cartas más pequeñas*/
     .card {
         width: 250px;
         height: 350px;
     }
 }
 
+/*Para pantallas de máximo 600px de ancho (móviles)*/
 @media (max-width: 600px) {
     .cards-container {
+        /*Apilamos las cartas verticalmente*/
         flex-direction: column;
+        /*Las centramos */
         align-items: center;
         gap: 25px;
     }
-    
+
     .card {
         width: 280px;
         height: 380px;
     }
 }
 
-/* Táctil */
+/* Táctil con JavaScript*/
 @media (hover: none) {
     .card:hover {
         transform: none;
     }
-    
+
     .card:hover .card-inner {
         transform: none;
     }
-    
+
     .card.flipped .card-inner {
         transform: rotateY(180deg);
     }

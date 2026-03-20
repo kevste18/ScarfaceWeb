@@ -1,10 +1,12 @@
 .contenedor-columnas {
+    /*Usamos flexbox*/
     display: flex;
     flex-direction: column;
     gap: 20px;
     padding: 20px;
 }
 
+/*Para esto, usamos Grid*/
 .arma-bloque {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -21,6 +23,7 @@
     gap: 10px;
 }
 
+/*Fondo rojo semitransparente alrededor del modelo*/
 .arma-viewer {
     background: rgba(221, 5, 5, 0.1);
 }
@@ -34,6 +37,7 @@
 ul {
     border-radius: 8px;
     padding: 10px 20px;
+    /*Eliminamos los puntos de la lista*/
     list-style: none;
 }
 
@@ -57,17 +61,16 @@ li {
     border-radius: 4px;
 }
 
-#headers {
+.headers {
     font-size: 55px;
     color: red;
 }
 
 
-li:last-child {
-    border-bottom: none;
-}
+
 
 .img-wrap {
+    /*Esto es para poder añadir la descripción encima*/
     position: relative;
     width: 100%;
     border-radius: 10px;
@@ -83,6 +86,7 @@ li:last-child {
 }
 
 .img-wrap span {
+    /*Por defecto no se ve*/
     display: none;
     position: absolute;
     bottom: 10px;
@@ -94,10 +98,12 @@ li:last-child {
     font-size: 1rem;
 }
 
+/*Solo es visible al hacer hover*/
 .img-wrap:hover span {
     display: block;
 }
 
+/*RESPONSIVE*/
 @media (max-width: 768px) {
     .arma-bloque {
         grid-template-columns: 1fr;

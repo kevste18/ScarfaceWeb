@@ -1,4 +1,4 @@
-//Hacemos fetch a la API
+// Pedimos la IP pública y luego la ubicación
 fetch('https://api.ipify.org?format=json')
     .then(res => res.json())
     .then(data => {
@@ -8,37 +8,12 @@ fetch('https://api.ipify.org?format=json')
     })
     .then(res => res.json())
     .then(data => {
-        document.getElementById('location').textContent =
-            'Device Location: ' + data.city + ', ' + data.regionName + ', ' + data.country;
-    });// Pedimos la IP pública del dispositivo a la API de ipify
-fetch('https://api.ipify.org?format=json')
-    // Cuando responde, convertimos el body a objeto JavaScript
-    .then(res => res.json())
-    // Recibimos el objeto con la IP ya parseada
-    .then(data => {
-        // Guardamos solo la IP en una constante
-        const ip = data.ip;
-        // Mostramos la IP en el elemento con id="ip"
-        document.getElementById('ip').textContent = 'Device IP: ' + ip;
-        // Hacemos una segunda petición para obtener la ubicación de esa IP
-        return fetch('http://ip-api.com/json/' + ip);
-    })
-    // Convertimos la segunda respuesta a objeto JavaScript
-    .then(res => res.json())
-    // Recibimos el objeto con los datos de ubicación
-    .then(data => {
-        // Mostramos ciudad, región y país en el elemento con id="location"
         document.getElementById('location').textContent =
             'Device Location: ' + data.city + ', ' + data.regionName + ', ' + data.country;
     });
+    // data.city, data.regionName, data.country son los campos que devuelve ip-api.com
 
-// Escuchamos cualquier clic en toda la página
-document.addEventListener('click', () => {
-    // Reproducimos el primer elemento <audio> del DOM
-    document.querySelector('audio').play();
-// Con once:true el listener se elimina solo tras ejecutarse una vez
-}, { once: true }); 
-
+// Reproducimos el audio al primer click porque en navegadores modernos esta bloqueado el autplay por defecto
 document.addEventListener('click', () => {
     document.querySelector('audio').play();
-}, { once: true });
+}, { once: true }); // se ejecuta solo en el primer click y desaparece

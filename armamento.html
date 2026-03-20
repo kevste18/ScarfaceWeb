@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="armamento.css">
     <link rel="stylesheet" href="tema.css">
     <link rel="icon" type="image/png" href="images/cocaine_favicon.svg">
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@google/model-viewer/dist/model-viewer.min.js"></script>
 </head>
 
 <body>
@@ -23,9 +24,10 @@
         <nav>
             <a href="index.html">INICIO</a>
             <a href="reparto.html">REPARTO</a>
-            <a href="galeria.html">GALERÍA</a>
             <a href="operacion.html">OPERACIONES</a>
+            <a href="galeria.html">GALERÍA</a>
             <a href="test.html">TEST</a>
+        </nav>
         </nav>
 
         <main>
@@ -36,7 +38,7 @@
 
                 <div class="arma-bloque">
                     <div class="arma-info">
-                        <h3 id="headers">Revólver Smith & Wesson Modelo 36</h3>
+                        <h3 class="headers">Revólver Smith & Wesson Modelo 36</h3>
                         <ul>
                             <li><b>Tipo:</b> Revólver compacto.</li>
                             <li><b>Calibre:</b> .38 Special.</li>
@@ -51,7 +53,7 @@
                     </div>
                     <div class="arma-viewer">
                         <model-viewer src="modelos3d/smith__wesson_model_36_revolver.glb"
-                            alt="Revolver Smith Wesson Model 36" auto-rotate camera-controls shadow-intensity="1">
+                            alt="Revolver Smith Wesson Model 36" auto-rotate rotation-per-second="45deg">
                         </model-viewer>
                     </div>
                 </div>
@@ -59,11 +61,11 @@
                 <div class="arma-bloque">
                     <div class="arma-viewer">
                         <model-viewer src="modelos3d/colt_python_revolver.glb" alt="Revolver Colt Python" auto-rotate
-                            camera-controls shadow-intensity="1">
+                            rotation-per-second="45deg">
                         </model-viewer>
                     </div>
                     <div class="arma-info">
-                        <h3 id="headers">Revólver Colt Python</h3>
+                        <h3 class="headers">Revólver Colt Python</h3>
                         <ul>
                             <li><b>Tipo:</b> Revólver de doble acción.</li>
                             <li><b>Calibre:</b> .357 Magnum.</li>
@@ -80,7 +82,7 @@
 
                 <div class="arma-bloque">
                     <div class="arma-info">
-                        <h3 id="headers">Subfusil MAC-10</h3>
+                        <h3 class="headers">Subfusil MAC-10</h3>
                         <ul>
                             <li><b>Tipo:</b> Subfusil compacto.</li>
                             <li><b>Calibre:</b> .45 ACP o 9 mm.</li>
@@ -94,20 +96,20 @@
                         </div>
                     </div>
                     <div class="arma-viewer">
-                        <model-viewer src="modelos3d/mac-10_smg.glb" alt="Subfusil MAC-10" auto-rotate camera-controls
-                            shadow-intensity="1">
+                        <model-viewer src="modelos3d/mac-10_smg.glb" alt="Subfusil MAC-10" auto-rotate
+                            rotation-per-second="45deg">
                         </model-viewer>
                     </div>
                 </div>
 
                 <div class="arma-bloque">
                     <div class="arma-viewer">
-                        <model-viewer src="modelos3d/uzi_smg.glb" alt="Subfusil UZI" auto-rotate camera-controls
-                            shadow-intensity="1">
+                        <model-viewer src="modelos3d/uzi_smg.glb" alt="Subfusil UZI" auto-rotate
+                            rotation-per-second="45deg">
                         </model-viewer>
                     </div>
                     <div class="arma-info">
-                        <h3 id="headers">Subfusil UZI</h3>
+                        <h3 class="headers">Subfusil UZI</h3>
                         <ul>
                             <li><b>Tipo:</b> Subfusil.</li>
                             <li><b>Calibre:</b> 9x19 mm.</li>
@@ -123,7 +125,7 @@
 
                 <div class="arma-bloque">
                     <div class="arma-info">
-                        <h3 id="headers">Rifle M16A1</h3>
+                        <h3 class="headers">Rifle M16A1</h3>
                         <ul>
                             <li><b>Tipo:</b> Fusil de asalto militar.</li>
                             <li><b>Calibre:</b> 5.56x45 mm.</li>
@@ -137,8 +139,8 @@
                         </div>
                     </div>
                     <div class="arma-viewer">
-                        <model-viewer src="modelos3d/m16a1_rifle.glb" alt="Rifle M16A1" auto-rotate camera-controls
-                            shadow-intensity="1">
+                        <model-viewer src="modelos3d/m16a1_rifle.glb" alt="Rifle M16A1" auto-rotate
+                            rotation-per-second="45deg">
                         </model-viewer>
                     </div>
                 </div>
@@ -146,11 +148,11 @@
                 <div class="arma-bloque">
                     <div class="arma-viewer">
                         <model-viewer src="modelos3d/remington_870_shotgun.glb" alt="Escopeta Remington 870" auto-rotate
-                            camera-controls shadow-intensity="1">
+                            rotation-per-second="45deg">
                         </model-viewer>
                     </div>
                     <div class="arma-info">
-                        <h3 id="headers">Escopeta Remington 870</h3>
+                        <h3 class="headers">Escopeta Remington 870</h3>
                         <ul>
                             <li><b>Tipo:</b> Escopeta de acción por bombeo.</li>
                             <li><b>Calibre:</b> 12 gauge.</li>
@@ -167,7 +169,7 @@
 
                 <div class="arma-bloque">
                     <div class="arma-info">
-                        <h3 id="headers">Escopeta Recortada</h3>
+                        <h3 class="headers">Escopeta Recortada</h3>
                         <ul>
                             <li><b>Tipo:</b> Escopeta recortada de doble cañón.</li>
                             <li><b>Calibre:</b> 12 gauge.</li>
@@ -182,7 +184,7 @@
                     </div>
                     <div class="arma-viewer">
                         <model-viewer src="modelos3d/shawed_shotgun.glb" alt="Escopeta Recortada" auto-rotate
-                            camera-controls shadow-intensity="1">
+                            rotation-per-second="45deg">
                         </model-viewer>
                     </div>
                 </div>
@@ -195,6 +197,6 @@
     <img id="marca" src="images/MARCA_AGUA.png" alt="Logo Scarface" class="imagen-esquina">
 
     <script src="tema.js"></script>
-    <script type="module" src="https://cdn.jsdelivr.net/npm/@google/model-viewer/dist/model-viewer.min.js"></script>
 </body>
+
 </html>

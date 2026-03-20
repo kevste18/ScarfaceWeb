@@ -1,7 +1,7 @@
 body.tema-negro a {
     background-color: black;
     color: whitesmoke;
-    border-color: #1279c3;
+    border-color: #1279c3; /* Solo sobreescribe el color, hereda border-width y border-style del tema base */
     box-shadow: 3px 3px 6px rgba(0, 89, 255, 0.6);
 }
 
@@ -10,22 +10,12 @@ body.tema-negro a:hover {
     box-shadow: 5px 5px 10px rgba(0, 89, 255, 0.6);
 }
 
-body.tema-negro h1 {
-    color: whitesmoke;
-    text-shadow: 3px 3px 6px rgba(0, 89, 255, 0.6);
-}
-
-body.tema-negro h2 {
-    color: whitesmoke;
-    text-shadow: 3px 3px 6px rgba(0, 89, 255, 0.6);
-}
-
-body.tema-negro h3 {
-    color: whitesmoke;
-    text-shadow: 3px 3px 6px rgba(0, 89, 255, 0.6);
-}   
-
-body.tema-negro p {
+/* Selector múltiple para evitar repetir codigo inecesario */
+body.tema-negro h1,
+body.tema-negro h2,
+body.tema-negro h3,
+body.tema-negro p, 
+body.tema-negro li {
     color: whitesmoke;
     text-shadow: 3px 3px 6px rgba(0, 89, 255, 0.6);
 }
@@ -38,34 +28,16 @@ body.tema-negro button {
     background-color: rgba(0, 89, 255, 0.6);
     color: white;
     border-color: black;
-}
+}   
 
 body.tema-negro button:hover {
-    background-color: darkblue;
-}
-
-
-/*Reproductor colores*/
-body.tema-negro .reproductorMusica {
-    background-color: #001a4d;
-    border-color: #1279c3;
-    color: whitesmoke;
-    box-shadow: 3px 3px 10px blue;
-}
-
-body.tema-negro .controlesReproductor button {
-    background-color: rgba(0, 89, 255, 0.6);
-    border-color: lightblue;
-    color: white;
-}
-
-body.tema-negro .controlesReproductor button:hover {
     background-color: darkblue;
 }
 
 /*CARTAS*/
 body.tema-negro .card-front {
     background: linear-gradient(135deg, #001a4d 0%, #1279c3 100%);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 1);
 }
 
 body.tema-negro .card-back {
@@ -77,14 +49,8 @@ body.tema-negro .card-back {
     border-color: #1279c3;
 }
 
-body.tema-negro #bt1 {
-    background-color: black;
-    color: whitesmoke;
-    border-color: #1279c3;
-    box-shadow: 3px 3px 6px rgba(0, 89, 255, 0.6);   
-}
 
-body.tema-negro #btns {
+body.tema-negro .btns {
     background-color: black;
     color: whitesmoke;
     border-color: #1279c3;
@@ -95,22 +61,17 @@ body.tema-negro .arma-viewer {
     background: rgba(43, 7, 134, 0.1);
 }
 
-body.tema-negro #headers {
-    color: rgb(84, 84, 255);
-    text-shadow: 3px 3px 6px rgba(0, 98, 255, 0.6);
-}
-
+body.tema-negro .headers,
 body.tema-negro b {
     color: rgb(84, 84, 255);
     text-shadow: 3px 3px 6px rgba(0, 98, 255, 0.6);
 }
 
-body.tema-negro li {
-    color: whitesmoke;
-    text-shadow: 3px 3px 6px rgba(0, 89, 255, 0.6);
-}
-
 body.tema-negro .img-wrap {
     border-color:  rgba(0, 89, 255, 0.6); 
     box-shadow: 0 0 10px rgba(6, 6, 178, 0.6); 
+}
+
+body.tema-negro footer p{
+    background: rgba(0, 89, 255, 0.6);
 }
