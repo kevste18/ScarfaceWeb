@@ -1,6 +1,4 @@
-    * {
-    box-sizing: border-box; /* Padding y border incluidos en el width, evita desbordamientos */
-    }
+
     
     #textoOperaciones {
         background: rgba(0, 0, 0, 0.5);
@@ -14,11 +12,6 @@
         margin: 0 auto 30px;
     }
 
-    div {
-        width: 100%;
-        max-width: 100%;
-        overflow-x: hidden;
-    }
 
     .btns {
         margin: 0 10px; 

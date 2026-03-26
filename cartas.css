@@ -183,9 +183,6 @@
 
 /* Táctil con JavaScript*/
 @media (hover: none) {
-    .card:hover {
-        transform: none;
-    }
 
     .card:hover .card-inner {
         transform: none;

@@ -74,11 +74,6 @@
     transform: scale(1.1);
 }
 
-html,
-body {
-    overflow-x: hidden;
-}
-
 html.no-scroll {
     overflow: hidden;  /* Se activa por JS al abrir el modo expandido, evita scroll del fondo */
 }

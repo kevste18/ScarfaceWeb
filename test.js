@@ -14,7 +14,7 @@ let preguntaActual = 0;  // Índice de la pregunta que se está mostrando.
 let preguntas = document.querySelectorAll(".pregunta");  // Coge todos los elementos con clase "pregunta" del HTML.
 let transicionando = false; // Bandera para evitar que el usuario haga click durante la animación
 
-function responder(personaje, boton) {
+function responder(personaje) {
 
     if (transicionando) return; // Si ya hay una animación en curso, ignora el click y no hace nada
     transicionando = true; // Bloquea futuros clicks mientras dura la transición
