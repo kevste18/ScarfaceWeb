@@ -1,3 +1,7 @@
+        *, *::before, *::after {
+            box-sizing: border-box; /* Padding y border incluidos en el width, evita desbordamientos */
+        }
+        
         html {
             overflow-x: hidden;
             /*Evita scroll horizontal en el elemento raíz */
@@ -146,9 +150,6 @@
             transform: translateY(-2px);
         }
 
-        *, *::before, *::after {
-            box-sizing: border-box; /* Padding y border incluidos en el width, evita desbordamientos */
-        }
 
         .container {
             display: grid;
@@ -156,15 +157,15 @@
             /* Ocupa al menos toda la altura de la pantalla */
             width: 100%;
             max-width: 100%;
-            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-columns: 1fr;
             grid-template-rows: auto 1fr auto;
             grid-template-areas:
-                "nav nav nav"
-                "main main main"
-                "footer footer footer";
+                "nav"  
+                "main" 
+                "footer";
             gap: 0.2rem;
         }
-
+        
         nav {
             font-family: 'ScarfaceFont', sans-serif;
             font-size: 40px;

@@ -15,24 +15,48 @@ const fotos = [
     "images/gallery/img15.jpg",
     "images/gallery/img16.jpg"
 ];
-let actual = 0; //Contador del array.
 
-document.querySelector('.img').addEventListener('click', () => {
-    document.querySelector('.carrusel').classList.toggle('grande');
-    document.documentElement.classList.toggle('no-scroll');
-})
+let indice = 0; 
 
-function mover(direccion) { // Función que avanza o retrocede
-    const img = document.querySelector('.img'); // Obtiene el elemento <img> con clase "img"
-    img.style.opacity = 0; // Inicia el fade-out: hace la imagen invisible
-    setTimeout(() => { // Espera 300ms (duración del fade-out) y luego...
-        actual = (actual + direccion + fotos.length) % fotos.length; // Calcula el nuevo índice:
-        // suma la dirección, añade fotos.length para evitar negativos, y usa % para que sea circular
-        // Ej: si actual=0 y dirección=-1 → (0 + -1 + 15) % 15 = 14 → va a la última foto
-        img.src = fotos[actual]; // Cambia la imagen al src correspondiente al nuevo índice
-        img.style.opacity = 1; //Inicia el fade-in: hace la imagen visible de nuevo
-    }, 300);
+// 2. SELECCIÓN DE ELEMENTOS
+const imagenMostrada = document.querySelector('.img');
+const contenedorCarrusel = document.querySelector('.carrusel');
+
+// 3. FUNCIONES
+function cambiarFoto(direccion) {
+    // A. Empezamos el desvanecimiento
+    imagenMostrada.classList.add('transicion'); // Cambiado 'imagen' por 'imagenMostrada'
+
+    // B. Esperamos a que sea invisible para cambiar la fuente
+    setTimeout(function() {
+        indice = indice + direccion;
+
+        if (indice >= fotos.length) {
+            indice = 0;
+        } else if (indice < 0) {
+            indice = fotos.length - 1;
+        }
+
+        imagenMostrada.src = fotos[indice]; // Cambiado 'imagen' por 'imagenMostrada'
+
+        // C. Quitamos la clase para que vuelva a aparecer suavemente
+        imagenMostrada.classList.remove('transicion'); // Cambiado 'imagen' por 'imagenMostrada'
+    }, 300); 
 }
 
-document.getElementById('atras').addEventListener('click', () => mover(-1));  // Click en "atrás" retrocede una foto
-document.getElementById('adelante').addEventListener('click', () => mover(1)); // Click en "adelante" avanza una foto
+// Eventos de los botones
+document.getElementById('atras').onclick = function() { 
+    cambiarFoto(-1); 
+};
+
+document.getElementById('adelante').onclick = function() { 
+    cambiarFoto(1); 
+};
+
+
+// --- 3. ZOOM (IMAGEN GRANDE) ---
+imagenMostrada.onclick = function() { // CAMBIO CLAVE: Antes ponía 'fotos.onclick'
+    // Alternamos las clases en las variables correctas
+    contenedorCarrusel.classList.toggle('grande'); // Cambiado 'carrusel' por 'contenedorCarrusel'
+    document.documentElement.classList.toggle('no-scroll');
+};

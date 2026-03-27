@@ -22,13 +22,12 @@
     margin: 0;
     padding: 0 40px;
     box-sizing: border-box;
-    cursor: pointer;
     background: rgba(162, 158, 158, 0.348); /* Fondo semitransparente para el modo expandido */
 
-    /* Para centrar el contenido interno (imagen + botones) */
-    display: flex;
-    align-items: center;
-    justify-content: center;
+}
+
+.transicion {
+    opacity: 0;
 }
 
 .carrusel.grande .img {
@@ -37,7 +36,6 @@
     width: auto;
     height: auto;
     aspect-ratio: unset; /* Anula el 16/9 definido en .img base */  
-    cursor: pointer;
 }
 
 .carrusel.grande .carrusel-btn {
@@ -55,7 +53,7 @@
     object-fit: cover; /* Rellena el espacio sin deformar, recortando si hace falta */
     border: 3px solid #000000;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.85);
-    transition: opacity 0.3s ease;
+    transition: opacity 0.3s ease-in-out;
     flex: 1; /* Ocupa el espacio disponible entre los dos botones */    
     min-width: 0; /* Necesario en flex para que el elemento pueda encogerse por debajo de su tamaño natural */
     cursor: pointer;
@@ -74,9 +72,6 @@
     transform: scale(1.1);
 }
 
-html.no-scroll {
-    overflow: hidden;  /* Se activa por JS al abrir el modo expandido, evita scroll del fondo */
-}
 
 /* RESPONSIVE PARA EL CARRUSEL */
 
@@ -95,17 +90,15 @@ html.no-scroll {
 
     /* Ajustes para el carrusel GRANDE (Modo Expandido) */
     .carrusel.grande {
-        padding: 0 10px;
+        padding: 0;
         /* Reducimos el espacio lateral */
-        flex-direction: column;
-        /* Apilamos flechas si es necesario o las mantenemos flotando */
-        justify-content: center;
+        flex-direction: row;
     }
 
     .carrusel.grande .img {
         max-width: 95vw;
         /* Que ocupe casi todo el ancho */
-        max-height: 60vh;
+        max-height: 90vh;
         /* Limitamos la altura para dejar aire arriba/abajo */
         object-fit: contain;
         /* Evita que la imagen se corte */
@@ -118,7 +111,6 @@ html.no-scroll {
         min-width: 45px;
         position: absolute;
         z-index: 10000;
-        /* Un toque de transparencia para que se vea la imagen detrás */
         background: rgba(0, 0, 0, 0.3);
         border-radius: 50%;
         padding: 5px;
